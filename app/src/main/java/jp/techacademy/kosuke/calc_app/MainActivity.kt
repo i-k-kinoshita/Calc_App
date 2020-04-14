@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+       // setSupportActionBar(toolbar)
 
         button1.setOnClickListener(this)
         button2.setOnClickListener(this)
@@ -31,15 +31,20 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     override fun onClick(v: View) {
         if (v.id == R.id.button1) {
             val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("VALUE1", editText1.text.toString().toDouble() + editText2.text.toString().toDouble())
             startActivity(intent)
+
         } else if (v.id == R.id.button2) {
             val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("VALUE1", editText1.text.toString().toDouble() - editText2.text.toString().toDouble())
             startActivity(intent)
         } else if (v.id == R.id.button3) {
             val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("VALUE1", editText1.text.toString().toDouble() * editText2.text.toString().toDouble())
             startActivity(intent)
         } else if (v.id == R.id.button4) {
             val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("VALUE1", editText1.text.toString().toDouble() / editText2.text.toString().toDouble())
             startActivity(intent)
         }
     }
