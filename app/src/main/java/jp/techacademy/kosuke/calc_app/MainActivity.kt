@@ -9,6 +9,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import android.content.Intent
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() , View.OnClickListener{
 
@@ -31,21 +32,51 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     override fun onClick(v: View) {
         if (v.id == R.id.button1) {
             val intent = Intent(this, SecondActivity::class.java)
-            intent.putExtra("VALUE1", editText1.text.toString().toDouble() + editText2.text.toString().toDouble())
-            startActivity(intent)
+
+            try{
+                intent.putExtra("VALUE1", editText1.text.toString().toDouble() + editText2.text.toString().toDouble())
+                startActivity(intent)
+
+            }catch (e: Exception){
+                var snacbar = Snackbar.make(layout, "数値を入力してください", Snackbar.LENGTH_SHORT).show()
+
+            }
 
         } else if (v.id == R.id.button2) {
             val intent = Intent(this, SecondActivity::class.java)
-            intent.putExtra("VALUE1", editText1.text.toString().toDouble() - editText2.text.toString().toDouble())
-            startActivity(intent)
+
+            try{
+                intent.putExtra("VALUE1", editText1.text.toString().toDouble() - editText2.text.toString().toDouble())
+                startActivity(intent)
+
+            }catch (e: Exception){
+                var snacbar = Snackbar.make(layout, "数値を入力してください", Snackbar.LENGTH_SHORT).show()
+
+            }
         } else if (v.id == R.id.button3) {
             val intent = Intent(this, SecondActivity::class.java)
-            intent.putExtra("VALUE1", editText1.text.toString().toDouble() * editText2.text.toString().toDouble())
-            startActivity(intent)
+
+            try{
+                intent.putExtra("VALUE1", editText1.text.toString().toDouble() * editText2.text.toString().toDouble())
+                startActivity(intent)
+
+            }catch (e: Exception){
+                var snacbar = Snackbar.make(layout, "数値を入力してください", Snackbar.LENGTH_SHORT).show()
+
+            }
+
         } else if (v.id == R.id.button4) {
             val intent = Intent(this, SecondActivity::class.java)
-            intent.putExtra("VALUE1", editText1.text.toString().toDouble() / editText2.text.toString().toDouble())
-            startActivity(intent)
+
+            try{
+                intent.putExtra("VALUE1", editText1.text.toString().toDouble() / editText2.text.toString().toDouble())
+                startActivity(intent)
+
+            }catch (e: Exception){
+                var snacbar = Snackbar.make(layout, "数値を入力してください", Snackbar.LENGTH_SHORT).show()
+
+            }
+
         }
     }
 
