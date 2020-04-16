@@ -23,60 +23,30 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         button3.setOnClickListener(this)
         button4.setOnClickListener(this)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+//        fab.setOnClickListener { view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
+//        }
     }
 
     override fun onClick(v: View) {
-        if (v.id == R.id.button1) {
+        try{
             val intent = Intent(this, SecondActivity::class.java)
 
-            try{
+            if(v.id == R.id.button1){
                 intent.putExtra("VALUE1", editText1.text.toString().toDouble() + editText2.text.toString().toDouble())
-                startActivity(intent)
-
-            }catch (e: Exception){
-                var snacbar = Snackbar.make(layout, "数値を入力してください", Snackbar.LENGTH_SHORT).show()
-
-            }
-
-        } else if (v.id == R.id.button2) {
-            val intent = Intent(this, SecondActivity::class.java)
-
-            try{
+            }else if (v.id == R.id.button2) {
                 intent.putExtra("VALUE1", editText1.text.toString().toDouble() - editText2.text.toString().toDouble())
-                startActivity(intent)
-
-            }catch (e: Exception){
-                var snacbar = Snackbar.make(layout, "数値を入力してください", Snackbar.LENGTH_SHORT).show()
-
-            }
-        } else if (v.id == R.id.button3) {
-            val intent = Intent(this, SecondActivity::class.java)
-
-            try{
+            }else if (v.id == R.id.button3) {
                 intent.putExtra("VALUE1", editText1.text.toString().toDouble() * editText2.text.toString().toDouble())
-                startActivity(intent)
-
-            }catch (e: Exception){
-                var snacbar = Snackbar.make(layout, "数値を入力してください", Snackbar.LENGTH_SHORT).show()
-
-            }
-
-        } else if (v.id == R.id.button4) {
-            val intent = Intent(this, SecondActivity::class.java)
-
-            try{
+            }else if (v.id == R.id.button4) {
                 intent.putExtra("VALUE1", editText1.text.toString().toDouble() / editText2.text.toString().toDouble())
-                startActivity(intent)
-
-            }catch (e: Exception){
-                var snacbar = Snackbar.make(layout, "数値を入力してください", Snackbar.LENGTH_SHORT).show()
-
             }
 
+            startActivity(intent)
+
+        }catch (e: Exception){
+            var snacbar = Snackbar.make(layout, "数値を入力してください", Snackbar.LENGTH_SHORT).show()
         }
     }
 
